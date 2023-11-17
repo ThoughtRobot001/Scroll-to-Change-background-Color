@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Website</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.5s ease;
+      }
+      /* Define the background colors for each section */
+      .first-section {
+        min-height: 85vh;
+        margin: 0px 0px 25px 0px;
+        display: grid;
+        place-items: center;
+        align-items: center;
+        /* background-color: #ffffff; */
+      }
+      .second-section {
+        min-height: 85vh;
+        margin: 0px 0px 25px 0px;
+        display: grid;
+        place-items: center;
+        align-items: center;
+        /* background-color: rgb(165, 191, 222); */
+      }
+      .third-section {
+        min-height: 85vh;
+        margin: 0px 0px 25px 0px;
+        display: grid;
+        place-items: center;
+        align-items: center;
+        /* background-color: rgb(251, 201, 199); */
+      }
+      .fourth-section {
+        min-height: 85vh;
+        margin: 0px 0px 25px 0px;
+        display: grid;
+        place-items: center;
+        align-items: center;
+        /* background-color: rgb(198, 227, 215); */
+      }
+      .fifth-section {
+        min-height: 85vh;
+        margin: 0px 0px 25px 0px;
+        display: grid;
+        place-items: center;
+        align-items: center;
+        /* background-color: rgb(23, 61, 44); */
+      }
+      .sixth-section {
+        min-height: 85vh;
+        margin: 0px 0px 25px 0px;
+        display: grid;
+        place-items: center;
+        align-items: center;
+        /* background-color: #000000; */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Section 1 -->
+    <section class="first-section" data-bg-color="#ffffff" data-text-color="black">
+      <h2>Section 1</h2>
+      <!-- Content for Section 1 -->
+    </section>
+
+    <!-- Section 2 -->
+    <section
+      class="second-section"
+      data-bg-color="rgb(165, 191, 222)"
+      data-text-color="black">
+      <h2>Section 2</h2>
+      <!-- Content for Section 2 -->
+    </section>
+
+    <!-- Section 3 -->
+    <section
+      class="third-section"
+      data-bg-color="rgb(251, 201, 199)"
+      data-text-color="black">
+      <h2>Section 3</h2>
+      <!-- Content for Section 3 -->
+    </section>
+
+    <!-- Section 4 -->
+    <section
+      class="fourth-section"
+      data-bg-color="rgb(198, 227, 215)"
+      data-text-color="black">
+      <h2>Section 4</h2>
+      <!-- Content for Section 4 -->
+    </section>
+
+    <!-- Section 5 -->
+    <section
+      class="fifth-section"
+      data-bg-color="rgb(23, 61, 44)"
+      data-text-color="white">
+      <h2>Section 5</h2>
+      <!-- Content for Section 5 -->
+    </section>
+
+    <!-- Section 6 -->
+    <section class="sixth-section" data-bg-color="#000000" data-text-color="white">
+      <h2>Section 6</h2>
+      <!-- Content for Section 6 -->
+    </section>
+
+    <script>
+      const body = document.querySelector("body");
+      function handleIntersection(entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const textColor = entry.target.dataset.textColor;
+            const bgColor = entry.target.dataset.bgColor;
+
+            body.style.color = textColor;
+            body.style.backgroundColor = bgColor;
+
+            console.log(body.style);
+          }
+        });
+        console.log(entries);
+      }
+
+      const observerOptions = {
+        root: null,
+        threshold: 0.7, // Adjust the threshold based on your preference
+      };
+
+      const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+      // Observe each section
+      document
+        .querySelectorAll(
+          ".first-section, .second-section, .third-section, .fourth-section, .fifth-section, .sixth-section"
+        )
+        .forEach((section) => {
+          observer.observe(section);
+        });
+      console.log("Script is running!");
+    </script>
+  </body>
+</html>
